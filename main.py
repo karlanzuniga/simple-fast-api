@@ -6,13 +6,17 @@ from app.schema import UserCreate, UserUpdate
 import uvicorn
 
 
-
 app = FastAPI()
 
 
+@app.get("/")
+def hello():
+    return "Go to the /docs resource."
+
 @app.get("/users/")
 def get_all_users(db: Session = Depends(get_db)):
-    return db.query(User).all()
+    result = db.query(User).all()
+    return result
 
 @app.get("/users/{user_id}")
 def get_user_by_email(user_id: int, db: Session = Depends(get_db)):
