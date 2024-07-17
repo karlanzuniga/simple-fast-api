@@ -1,11 +1,17 @@
 from pydantic import BaseModel
 
-
-class UserCreate(BaseModel):
+class UserBase(BaseModel):
     name: str
     email: str
+
+class UserCreate(UserBase):
     password: str
 
 class UserUpdate(BaseModel):
-    name: str
-    email: str
+    pass
+
+class UserResponse(UserBase):
+    id: int
+
+class config: 
+    orn_mode= True

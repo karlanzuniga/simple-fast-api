@@ -1,11 +1,9 @@
 from sqlalchemy import Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
+from .database import Base
 
+class YourTable(Base):
+    __tablename__ = "your_table"
 
-Base = declarative_base()
-class User(Base):
-    __tablename__ = "users"
-    id: int = Column(Integer, primary_key=True, index=True)
-    name: str = Column(String(50), index=True)
-    email: str = Column(String(50), unique=True, index=True)
-    password: str = Column(String(50))
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, index=True)
+    description = Column(String)

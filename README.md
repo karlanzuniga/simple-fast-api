@@ -30,7 +30,7 @@ pip install -r requirements.txt
 Run the application:
 
 ```bash
-uvicorn main:app --reload
+
 ```
 
 The application will start and be available at http://localhost:8000.
